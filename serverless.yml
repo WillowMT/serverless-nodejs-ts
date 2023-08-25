@@ -1,0 +1,21 @@
+org: willowmt
+app: bots
+service: financeapp
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  api:
+    handler: handler.main
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
